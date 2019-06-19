@@ -101,7 +101,7 @@ async function init(){
     
     let monetrum = await new Monetrum(env.NODE_URI);
     let client = await MongoClient.connect(env.DATABASE_CS, { useNewUrlParser: true });
-    let db = client.db('parifix');
+    let db = client.db(env.DATABASE);
 
     app.get('/get-wallet', async (req, res) => {
         // console.log('istek geldi')
