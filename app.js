@@ -75,9 +75,9 @@ async function parifixCallback(db, txes){
         content = replaceAll(content, '{txid}', tx.hash);
         content = replaceAll(content, '{Wallet}', tx.from);
 
-        let mailOptions = { from: 'Parifix <nomail@parifix.com>',to: user.Email, subject: title, html: content };
-        let maillist = ['mtalmac@gmail.com','hakan@sikke.com.tr'];
-        var mailOptionsAdmins = { from: 'Parifix <nomail@parifix.com>', to: maillist, subject: 'Yeni Koin Yatırma - ' + title, html: content };
+        let mailOptions = { from: env.MAIL_FROM, to: user.Email, subject: title, html: content };
+        let maillist = env.NOTIFY_ADMIN.split(',').map(x => x.trim());
+        var mailOptionsAdmins = { from: env.MAIL_FROM, to: maillist, subject: 'Yeni Koin Yatırma - ' + title, html: content };
 
         transporter.sendMail(mailOptions, (error, info) => {
             if (error) {
