@@ -1,2 +1,4 @@
-# client-for-exchange
-Monetrum Client for Crypto Exchange
+# Borsalar için Monetrum Node.JS Client
+
+## Kurulum
+
